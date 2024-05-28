@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import{ book } from './models/bookModels.js';
 
 const app= express();
+app.use(express.json());
 app.get('/',(request,response) => {
     console.log(request);
     return response.status(234).send('Heluuu');
