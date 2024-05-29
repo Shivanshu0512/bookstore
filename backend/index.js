@@ -15,7 +15,7 @@ app.post('/books', async(request, response)=> {
     try{
         if(
             !request.body.title ||
-            !request.boby.author ||
+            !request.body.author ||
             !request.body.publishYear
         ){
             return response.status(400).send({
@@ -24,7 +24,7 @@ app.post('/books', async(request, response)=> {
         }
         const newBook = {
             title: request.body.title,
-            author: request.boby.author,
+            author: request.body.author,
             publishYear: request.body.publishYear,
         };
         const book= await Book.create(newBook);
@@ -54,7 +54,7 @@ mongoose.connect(mongoDBURL)
 .then(()=>{
 console.log('App connected');
 app.listen(PORT, () =>{
-    console.log(`runnig:${PORT}`);
+    console.log(`running:${PORT}`);
     });
 })
 .catch((error)=>{
